@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, FileText, Package, Database, Book } from 'lucide-react';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -10,6 +10,42 @@ const Index = () => {
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  const services = [
+    {
+      title: "Tally Software Service",
+      description: "Comprehensive Tally software support and maintenance services",
+      icon: <FileText className="w-8 h-8" />
+    },
+    {
+      title: "Tally Integration",
+      description: "Seamless integration with your existing business systems",
+      icon: <Database className="w-8 h-8" />
+    },
+    {
+      title: "Tally Corporate Training",
+      description: "Professional training programs for your team",
+      icon: <Book className="w-8 h-8" />
+    }
+  ];
+
+  const featuredProducts = [
+    {
+      title: "TallyPrime",
+      description: "Complete Business Management Software",
+      image: "https://5.imimg.com/data5/SELLER/Default/2023/4/301462781/WG/JP/YR/64443040/tally-prime-software.png"
+    },
+    {
+      title: "Biz Analyst",
+      description: "Mobile Business Analytics Solution",
+      image: "https://play-lh.googleusercontent.com/zfjrbaT9qyM5H6Kmuy9m824IDtGHypDyL0tO-AvfmUw7z_zC763RIrNYDYJCDzA1wA"
+    },
+    {
+      title: "Busy Accounting",
+      description: "Professional Accounting Software",
+      image: "https://w7.pngwing.com/pngs/382/649/png-transparent-brand-computer-software-logo-accounting-software-design-logo-business-accounting.png"
+    }
+  ];
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -23,13 +59,13 @@ const Index = () => {
             className="text-center"
           >
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-gray-900 mb-6">
-              Transforming Business Through
+              Complete Business
               <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                {" "}Innovation
+                {" "}Solutions
               </span>
             </h1>
             <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
-              We deliver cutting-edge software solutions that help businesses thrive in the digital age.
+              Empowering businesses with comprehensive software solutions and expert services
             </p>
             <div className="flex justify-center gap-4">
               <Link
@@ -40,18 +76,18 @@ const Index = () => {
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
               <Link
-                to="/services"
+                to="/products"
                 className="inline-flex items-center px-6 py-3 rounded-lg border border-gray-300 text-gray-700 hover:border-blue-600 hover:text-blue-600 transition-colors"
               >
-                Our Services
+                Our Products
               </Link>
             </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Services Preview */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      {/* Featured Products */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -59,9 +95,48 @@ const Index = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="text-center mb-12"
           >
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Featured Products</h2>
+            <p className="text-gray-600 max-w-2xl mx-auto">
+              Industry-leading software solutions for your business needs
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {featuredProducts.map((product, index) => (
+              <motion.div
+                key={product.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+                transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
+                className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow"
+              >
+                <div className="h-48 mb-4 overflow-hidden rounded-lg">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    className="w-full h-full object-contain"
+                  />
+                </div>
+                <h3 className="text-xl font-semibold mb-2">{product.title}</h3>
+                <p className="text-gray-600">{product.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Preview */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-center mb-12"
+          >
             <h2 className="text-3xl font-bold text-gray-900 mb-4">Our Services</h2>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Comprehensive software solutions tailored to your business needs
+              Comprehensive software solutions and support services
             </p>
           </motion.div>
 
@@ -71,7 +146,7 @@ const Index = () => {
                 key={service.title}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
-                transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
+                transition={{ duration: 0.8, delay: 0.4 + index * 0.1 }}
                 className="bg-white rounded-lg p-6 shadow-lg hover:shadow-xl transition-shadow"
               >
                 <div className="text-blue-600 mb-4">{service.icon}</div>
@@ -108,23 +183,5 @@ const Index = () => {
     </div>
   );
 };
-
-const services = [
-  {
-    title: "Custom Software Development",
-    description: "Tailored solutions designed to meet your specific business requirements.",
-    icon: "💻"
-  },
-  {
-    title: "Mobile App Development",
-    description: "Native and cross-platform mobile applications for iOS and Android.",
-    icon: "📱"
-  },
-  {
-    title: "Cloud Solutions",
-    description: "Scalable and secure cloud infrastructure for your applications.",
-    icon: "☁️"
-  }
-];
 
 export default Index;

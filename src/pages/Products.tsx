@@ -31,7 +31,7 @@ const Products = () => {
           "Bank integration",
           "Advanced security"
         ],
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1530"
+        image: "https://5.imimg.com/data5/SELLER/Default/2023/4/301462781/WG/JP/YR/64443040/tally-prime-software.png"
       },
       {
         title: "TallyPrime Silver",
@@ -69,7 +69,7 @@ const Products = () => {
           "Standard support",
           "Regular updates"
         ],
-        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1470"
+        image: "https://play-lh.googleusercontent.com/zfjrbaT9qyM5H6Kmuy9m824IDtGHypDyL0tO-AvfmUw7z_zC763RIrNYDYJCDzA1wA"
       },
       {
         title: "Biz Analyst - 3 Years",
@@ -107,7 +107,7 @@ const Products = () => {
           "MIS reports",
           "Bank reconciliation"
         ],
-        image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1470"
+        image: "https://w7.pngwing.com/pngs/382/649/png-transparent-brand-computer-software-logo-accounting-software-design-logo-business-accounting.png"
       }
     ],
     vyapar: [
@@ -121,7 +121,7 @@ const Products = () => {
           "GST filing",
           "Mobile app access"
         ],
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1530"
+        image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3icnJislJ_5c_qkWWMppQw1LF-CSxOO7cEQ&s"
       }
     ]
   };
