@@ -1,10 +1,9 @@
-
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Package, ChartBar, ShoppingCart } from 'lucide-react';
 
 const Products = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,139 +13,115 @@ const Products = () => {
   }, []);
 
   const productCategories = [
-    { id: "enterprise", label: "Enterprise Solutions" },
-    { id: "mobile", label: "Mobile Products" },
-    { id: "cloud", label: "Cloud Services" },
-    { id: "security", label: "Security Tools" }
+    { id: "tally", label: "TallyPrime" },
+    { id: "biz", label: "Biz Analyst" },
+    { id: "busy", label: "Busy" },
+    { id: "vyapar", label: "Vyapar" }
   ];
 
   const products = {
-    enterprise: [
+    tally: [
       {
-        title: "AGS Enterprise Suite",
-        description: "Comprehensive business management solution with modules for CRM, HRM, and project management.",
+        title: "TallyPrime Gold",
+        description: "Premium business management solution with advanced features.",
         features: [
-          "Customizable dashboards",
-          "Role-based access control",
-          "Workflow automation",
+          "Multi-user support",
           "Advanced reporting",
-          "Integration API"
+          "Remote access",
+          "Bank integration",
+          "Advanced security"
         ],
         image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1530"
       },
       {
-        title: "DataFlow Analytics",
-        description: "Advanced analytics platform for business intelligence and data visualization.",
+        title: "TallyPrime Silver",
+        description: "Essential business management solution for growing businesses.",
         features: [
-          "Real-time analytics",
-          "Custom reports",
-          "Data visualization",
-          "Predictive analysis",
-          "Multi-source data integration"
+          "Single user",
+          "Standard reporting",
+          "Local access",
+          "Basic security",
+          "Standard features"
         ],
         image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1470"
       },
       {
-        title: "OmniChannel Commerce",
-        description: "End-to-end e-commerce solution for businesses of all sizes.",
+        title: "TallyPrime Server",
+        description: "Enterprise-grade solution for large organizations.",
         features: [
-          "Multi-store management",
-          "Payment gateway integration",
+          "Unlimited users",
+          "Enterprise features",
+          "Advanced customization",
+          "High security",
+          "Premium support"
+        ],
+        image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=1470"
+      }
+    ],
+    biz: [
+      {
+        title: "Biz Analyst - 1 Year",
+        description: "Business analytics solution with 1-year subscription.",
+        features: [
+          "Real-time analytics",
+          "Mobile access",
+          "1 year validity",
+          "Standard support",
+          "Regular updates"
+        ],
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1470"
+      },
+      {
+        title: "Biz Analyst - 3 Years",
+        description: "Extended business analytics solution with 3-year subscription.",
+        features: [
+          "Advanced analytics",
+          "Priority support",
+          "3 years validity",
+          "Additional features",
+          "Premium updates"
+        ],
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1530"
+      },
+      {
+        title: "Biz Analyst - 5 Years",
+        description: "Long-term business analytics solution with 5-year subscription.",
+        features: [
+          "Enterprise analytics",
+          "VIP support",
+          "5 years validity",
+          "All features",
+          "Priority updates"
+        ],
+        image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&q=80&w=1470"
+      }
+    ],
+    busy: [
+      {
+        title: "Busy Accounting Software",
+        description: "Complete accounting solution for businesses.",
+        features: [
+          "Financial accounting",
           "Inventory management",
-          "Customer segmentation",
-          "Analytics and reporting"
+          "GST compliance",
+          "MIS reports",
+          "Bank reconciliation"
         ],
-        image: "https://images.unsplash.com/photo-1556742502-ec7c0e9f34b1?auto=format&fit=crop&q=80&w=1587"
+        image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&q=80&w=1470"
       }
     ],
-    mobile: [
+    vyapar: [
       {
-        title: "MobileWorkforce",
-        description: "Field service management application for teams on the go.",
+        title: "Vyapar Software",
+        description: "Business accounting software for small businesses.",
         features: [
-          "GPS tracking",
-          "Job scheduling",
-          "Customer signature capture",
-          "Invoicing",
-          "Offline capability"
+          "Billing & invoicing",
+          "Inventory tracking",
+          "Business reports",
+          "GST filing",
+          "Mobile app access"
         ],
-        image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=1470"
-      },
-      {
-        title: "SecureMessenger",
-        description: "End-to-end encrypted messaging platform for businesses.",
-        features: [
-          "End-to-end encryption",
-          "File sharing",
-          "Group messaging",
-          "Voice and video calls",
-          "Admin controls"
-        ],
-        image: "https://images.unsplash.com/photo-1622675363311-3e1904dc1885?auto=format&fit=crop&q=80&w=1470"
-      }
-    ],
-    cloud: [
-      {
-        title: "CloudVault",
-        description: "Secure cloud storage and file management system.",
-        features: [
-          "Unlimited storage",
-          "File versioning",
-          "Advanced permissions",
-          "Automated backups",
-          "Content collaboration"
-        ],
-        image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?auto=format&fit=crop&q=80&w=1470"
-      },
-      {
-        title: "ServerGuard",
-        description: "Cloud infrastructure monitoring and management tool.",
-        features: [
-          "Real-time monitoring",
-          "Automated scaling",
-          "Incident alerts",
-          "Performance analytics",
-          "Cost optimization"
-        ],
-        image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&q=80&w=1470"
-      },
-      {
-        title: "DevOps Pipeline",
-        description: "Continuous integration and deployment platform for development teams.",
-        features: [
-          "Automated testing",
-          "Deployment automation",
-          "Version control",
-          "Environment management",
-          "Collaboration tools"
-        ],
-        image: "https://images.unsplash.com/photo-1560732488-7b5f5de677c1?auto=format&fit=crop&q=80&w=1470"
-      }
-    ],
-    security: [
-      {
-        title: "CyberShield",
-        description: "All-in-one security platform for threat detection and prevention.",
-        features: [
-          "Threat intelligence",
-          "Vulnerability scanning",
-          "Intrusion detection",
-          "Security reporting",
-          "Compliance monitoring"
-        ],
-        image: "https://images.unsplash.com/photo-1614064641938-3bbee52942c7?auto=format&fit=crop&q=80&w=1470"
-      },
-      {
-        title: "IdentityGuard",
-        description: "Identity and access management solution for enterprises.",
-        features: [
-          "Multi-factor authentication",
-          "Single sign-on",
-          "Directory integration",
-          "Access policies",
-          "Audit logging"
-        ],
-        image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=1470"
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1530"
       }
     ]
   };
@@ -180,7 +155,7 @@ const Products = () => {
             animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            <Tabs defaultValue="enterprise" className="w-full">
+            <Tabs defaultValue="tally" className="w-full">
               <TabsList className="grid grid-cols-2 md:grid-cols-4 mb-8">
                 {productCategories.map(category => (
                   <TabsTrigger key={category.id} value={category.id}>

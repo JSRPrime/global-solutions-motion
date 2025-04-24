@@ -1,9 +1,8 @@
-
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Separator } from '@/components/ui/separator';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, FileText, Calendar, Book, BookOpen, Cog, Database } from 'lucide-react';
 
 const Services = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -15,81 +14,94 @@ const Services = () => {
   const servicesList = [
     {
       id: 1,
-      title: "Custom Software Development",
-      description: "Tailored solutions designed specifically to address your business needs and challenges.",
+      title: "Tally Software Service",
+      description: "Comprehensive Tally software support and maintenance service.",
       details: [
-        "Enterprise Software Solutions",
-        "CRM & ERP Systems",
-        "E-commerce Platforms",
-        "Content Management Systems",
-        "Custom API Development"
+        "Software Updates & Upgrades",
+        "Technical Support",
+        "Remote Access Support",
+        "Data Recovery Support",
+        "Priority Response"
       ],
-      icon: "💻"
+      icon: <FileText className="w-8 h-8 text-blue-600" />
     },
     {
       id: 2,
-      title: "Mobile App Development",
-      description: "Engaging and feature-rich mobile applications for iOS and Android platforms.",
+      title: "Tally Integration",
+      description: "Seamless integration of Tally with other business applications.",
       details: [
-        "Native iOS Development",
-        "Native Android Development",
-        "Cross-platform Solutions",
-        "Progressive Web Apps",
-        "App Store Optimization"
+        "API Integration",
+        "Third-party App Integration",
+        "Custom Integration Solutions",
+        "Data Synchronization",
+        "Integration Testing"
       ],
-      icon: "📱"
+      icon: <Cog className="w-8 h-8 text-blue-600" />
     },
     {
       id: 3,
-      title: "Web Development",
-      description: "Responsive and dynamic websites and web applications with modern technologies.",
+      title: "Tally AMC",
+      description: "Annual Maintenance Contract for comprehensive Tally support.",
       details: [
-        "Responsive Website Design",
-        "Progressive Web Applications",
-        "E-commerce Websites",
-        "Web Portals & Dashboards",
-        "Performance Optimization"
+        "Regular Maintenance",
+        "Preventive Checks",
+        "Emergency Support",
+        "System Optimization",
+        "Performance Monitoring"
       ],
-      icon: "🌐"
+      icon: <Calendar className="w-8 h-8 text-blue-600" />
     },
     {
       id: 4,
-      title: "Cloud Solutions",
-      description: "Scalable and reliable cloud infrastructure and migration services.",
+      title: "Tally Synchronization",
+      description: "Data synchronization solutions for multi-location businesses.",
       details: [
-        "Cloud Migration",
-        "AWS & Azure Solutions",
-        "Cloud-native Applications",
-        "Serverless Architecture",
-        "DevOps Implementation"
+        "Real-time Sync",
+        "Multi-branch Sync",
+        "Cloud Synchronization",
+        "Automated Backup",
+        "Data Integrity Checks"
       ],
-      icon: "☁️"
+      icon: <Database className="w-8 h-8 text-blue-600" />
     },
     {
       id: 5,
-      title: "IT Consulting",
-      description: "Strategic technology advisory to help your business grow and transform.",
+      title: "Tally Corporate Training",
+      description: "Professional training programs for corporate teams.",
       details: [
-        "Digital Transformation Strategy",
-        "Technology Assessment",
-        "IT Roadmap Development",
-        "Process Optimization",
-        "Security Consulting"
+        "Basic to Advanced Training",
+        "Customized Curriculum",
+        "Hands-on Workshops",
+        "Certificate Programs",
+        "Corporate Batches"
       ],
-      icon: "🤝"
+      icon: <Book className="w-8 h-8 text-blue-600" />
     },
     {
       id: 6,
-      title: "Quality Assurance",
-      description: "Comprehensive testing and QA services to ensure high-quality software.",
+      title: "Tally Customization",
+      description: "Custom modifications to meet specific business requirements.",
       details: [
-        "Manual & Automated Testing",
-        "Performance Testing",
-        "Security Testing",
-        "User Experience Testing",
-        "Continuous Integration"
+        "Custom Reports",
+        "Invoice Customization",
+        "Business Process Automation",
+        "User Interface Modifications",
+        "Custom Features Development"
       ],
-      icon: "✅"
+      icon: <Cog className="w-8 h-8 text-blue-600" />
+    },
+    {
+      id: 7,
+      title: "Tally Implementation",
+      description: "Complete Tally setup and implementation services.",
+      details: [
+        "System Setup",
+        "Data Migration",
+        "User Training",
+        "Process Setup",
+        "Post-implementation Support"
+      ],
+      icon: <BookOpen className="w-8 h-8 text-blue-600" />
     }
   ];
 
