@@ -150,6 +150,13 @@ const Services = () => {
                     </li>
                   ))}
                 </ul>
+                <Link
+                  to={`/services/${service.id === 1 ? 'tally-software' : '#'}`}
+                  className="text-blue-600 hover:text-blue-700 flex items-center"
+                >
+                  Learn More
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
               </motion.div>
             ))}
           </div>

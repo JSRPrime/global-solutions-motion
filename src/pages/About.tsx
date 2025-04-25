@@ -6,11 +6,11 @@ import { Progress } from '@/components/ui/progress';
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [skills, setSkills] = useState([
-    { name: "Web Development", value: 90 },
-    { name: "Mobile Development", value: 85 },
-    { name: "Cloud Solutions", value: 80 },
-    { name: "UI/UX Design", value: 75 },
-    { name: "DevOps", value: 70 }
+    { name: "Tally Implementation", value: 95 },
+    { name: "Software Integration", value: 90 },
+    { name: "Technical Support", value: 85 },
+    { name: "Custom Development", value: 80 },
+    { name: "Business Analytics", value: 75 }
   ]);
 
   useEffect(() => {
