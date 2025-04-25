@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -12,6 +13,8 @@ import Products from "./pages/Products";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import TallyService from "./pages/services/TallyService";
+import TallyIntegrationService from "./pages/services/TallyIntegrationService";
+import TallyTrainingService from "./pages/services/TallyTrainingService";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +32,8 @@ const App = () => (
               <Route path="/about" element={<About />} />
               <Route path="/services" element={<Services />} />
               <Route path="/services/tally-software" element={<TallyService />} />
+              <Route path="/services/tally-integration" element={<TallyIntegrationService />} />
+              <Route path="/services/tally-training" element={<TallyTrainingService />} />
               <Route path="/products" element={<Products />} />
               <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<NotFound />} />

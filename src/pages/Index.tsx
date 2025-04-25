@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, FileText, Package, Database, Book } from 'lucide-react';
+import { ArrowRight, FileText, Package, Database, Book, Building, Users, ChartBar } from 'lucide-react';
 
 const Index = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -14,21 +14,24 @@ const Index = () => {
     {
       title: "Tally Software Service",
       description: "Comprehensive Tally software support and maintenance services",
-      icon: <FileText className="w-8 h-8" />
+      icon: <FileText className="w-8 h-8" />,
+      link: "/services/tally-software"
     },
     {
       title: "Tally Integration",
       description: "Seamless integration with your existing business systems",
-      icon: <Database className="w-8 h-8" />
+      icon: <Database className="w-8 h-8" />,
+      link: "/services/tally-integration"
     },
     {
       title: "Tally Corporate Training",
       description: "Professional training programs for your team",
-      icon: <Book className="w-8 h-8" />
+      icon: <Book className="w-8 h-8" />,
+      link: "/services/tally-training"
     }
   ];
 
-  const featuredProducts = [
+  const products = [
     {
       title: "TallyPrime",
       description: "Complete Business Management Software",
@@ -37,13 +40,19 @@ const Index = () => {
     {
       title: "Biz Analyst",
       description: "Mobile Business Analytics Solution",
-      image: "https://play-lh.googleusercontent.com/zfjrbaT9qyM5H6Kmuy9m824IDtGHypDyL0tO-AvfmUw7z_zC763RIrNYDYJCDzA1wA"
+      image: "https://5.imimg.com/data5/SELLER/Default/2023/4/301462781/WG/JP/YR/64443040/tally-prime-software.png"
     },
     {
-      title: "Busy Accounting",
-      description: "Professional Accounting Software",
-      image: "https://w7.pngwing.com/pngs/382/649/png-transparent-brand-computer-software-logo-accounting-software-design-logo-business-accounting.png"
+      title: "TallyPrime Server",
+      description: "Enterprise-grade Business Solution",
+      image: "https://5.imimg.com/data5/SELLER/Default/2023/4/301462781/WG/JP/YR/64443040/tally-prime-software.png"
     }
+  ];
+
+  const stats = [
+    { number: "15+", label: "Years Experience", icon: <Building className="w-6 h-6" /> },
+    { number: "5000+", label: "Happy Clients", icon: <Users className="w-6 h-6" /> },
+    { number: "24/7", label: "Support", icon: <ChartBar className="w-6 h-6" /> }
   ];
 
   return (
@@ -52,7 +61,7 @@ const Index = () => {
       <section 
         className="pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-cover bg-center bg-no-repeat min-h-screen flex items-center"
         style={{
-          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5')",
+          backgroundImage: "linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d')",
         }}
       >
         <div className="max-w-7xl mx-auto w-full">
@@ -90,8 +99,29 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Stats Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-900">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {stats.map((stat, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+                transition={{ duration: 0.8, delay: 0.2 + index * 0.1 }}
+                className="text-center text-white p-6 rounded-lg bg-gray-800"
+              >
+                <div className="flex justify-center mb-4">{stat.icon}</div>
+                <h3 className="text-3xl font-bold mb-2">{stat.number}</h3>
+                <p className="text-gray-300">{stat.label}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Featured Products */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-100">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -106,7 +136,7 @@ const Index = () => {
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredProducts.map((product, index) => (
+            {products.map((product, index) => (
               <motion.div
                 key={product.title}
                 initial={{ opacity: 0, y: 20 }}
@@ -130,7 +160,7 @@ const Index = () => {
       </section>
 
       {/* Services Preview */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gray-50">
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -155,7 +185,50 @@ const Index = () => {
               >
                 <div className="text-blue-600 mb-4">{service.icon}</div>
                 <h3 className="text-xl font-semibold mb-2">{service.title}</h3>
-                <p className="text-gray-600">{service.description}</p>
+                <p className="text-gray-600 mb-4">{service.description}</p>
+                <Link
+                  to={service.link}
+                  className="inline-flex items-center text-blue-600 hover:text-blue-700"
+                >
+                  Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-gray-900 to-blue-900 text-white">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl font-bold mb-4">Why Choose Us?</h2>
+            <p className="max-w-2xl mx-auto text-gray-300">
+              We deliver excellence through our commitment to quality, innovation, and customer satisfaction
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              { title: "Expert Team", description: "Highly skilled professionals" },
+              { title: "24/7 Support", description: "Round-the-clock assistance" },
+              { title: "Custom Solutions", description: "Tailored to your needs" },
+              { title: "Latest Technology", description: "Cutting-edge solutions" }
+            ].map((item, index) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: isVisible ? 1 : 0, y: isVisible ? 0 : 20 }}
+                transition={{ duration: 0.8, delay: 0.6 + index * 0.1 }}
+                className="text-center p-6 rounded-lg bg-white/10 backdrop-blur-lg"
+              >
+                <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                <p className="text-gray-300">{item.description}</p>
               </motion.div>
             ))}
           </div>
